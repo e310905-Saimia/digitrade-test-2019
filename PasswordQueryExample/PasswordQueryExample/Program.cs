@@ -15,7 +15,7 @@ namespace PasswordQueryExample
             while (userInput != password)
             {
                 attemptCounter++;
-                if(attemptCounter>=3)
+                if (attemptCounter >= 3)
                 {
                     Console.WriteLine("Tili on LUKITTU!");
                     return;
