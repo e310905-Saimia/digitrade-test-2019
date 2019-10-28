@@ -14,13 +14,16 @@ namespace IfTask3
             {
                 Console.Write($"Numero {userInputNumber} on negatiivinen, ");
             }
-            else if (userInputNumber > 0)
-            {
-                Console.Write($"Numero {userInputNumber} on positiivinen, ");
-            }
             else
             {
-                Console.Write($"Numero {userInputNumber} on nolla, ");
+                if (userInputNumber > 0)
+                {
+                    Console.Write($"Numero {userInputNumber} on positiivinen, ");
+                }
+                else
+                {
+                    Console.Write($"Numero {userInputNumber} on nolla, ");
+                }
             }
 
 

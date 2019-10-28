@@ -8,8 +8,8 @@ namespace IfTask3Vesion2
         {
             Console.WriteLine("Ohjelma tulostaa positiivinen, negatiivinen tai nolla sekä tarkastaa onko luku parillinen tai pariton.");
             Console.Write("Syötä luku: ");
-            string isSignNegativeOrPositive = "Positiivinen";
-            string isEvenOdd = "Parillinen";
+            string isSignNegativeOrPositive = string.Empty;
+            string isEvenOdd = "Pariton";
             int userInputNumber = int.Parse(Console.ReadLine());
 
             if(userInputNumber==0)
