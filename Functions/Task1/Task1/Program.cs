@@ -11,14 +11,13 @@ namespace Task1
             int userInput = int.Parse(Console.ReadLine());
             if (IsValidNumber(userInput))
             {
-                string strStars = GenerateAmountOfStars(userInput);
-                Console.WriteLine(strStars);
+                Console.WriteLine(GenerateAmountOfStars(userInput));
             }
             else
             {
                 Console.WriteLine($"Numero {userInput} ei ole sallittu luku!");
             }
-            
+
         }
 
         static bool IsValidNumber(int userInput)
@@ -46,7 +45,7 @@ namespace Task1
         static string GenerateAmountOfStars(int starCounter)
         {
             string stars = "";
-            for(int i = 0; i < starCounter; i++)
+            for (int i = 0; i < starCounter; i++)
             {
                 stars = stars + "*";
                 //stars += "*";
