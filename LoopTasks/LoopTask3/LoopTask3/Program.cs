@@ -11,11 +11,24 @@ namespace LoopTask3
             int userInput = int.Parse(Console.ReadLine());
             int evenSum = 0;
             int oddSum = 0;
-            
 
-            for (int i = 0; i <= userInput; i++)
+
+            //for (int i = 0; i <= userInput; i++)
+            //{
+
+            //    if (i % 2 == 0)
+            //    {
+            //        evenSum = evenSum + i;
+            //    }
+            //    else
+            //    {
+            //        oddSum = oddSum + i;
+            //    }
+            //}
+
+            int i = 0;
+            while (i <= userInput)
             {
-                
                 if (i % 2 == 0)
                 {
                     evenSum = evenSum + i;
@@ -24,7 +37,9 @@ namespace LoopTask3
                 {
                     oddSum = oddSum + i;
                 }
+                i = i + 1;
             }
+
             Console.WriteLine($"Parillisten summa = {evenSum}\n" +
                 $"Parittoimien summa = {oddSum}");
         }
