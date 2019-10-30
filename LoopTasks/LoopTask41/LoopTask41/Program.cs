@@ -6,7 +6,13 @@ namespace LoopTask41
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Tulostaa kokonaisluvut 1-10 ja niiden neliöjuuret");
+              
+            Console.WriteLine("Luku\tNeliöjuuri");
+            for(int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"  {i+1}\t{Math.Sqrt(i+1)}");
+            }
         }
     }
 }
