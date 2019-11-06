@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace Task2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ohjelma selvittää kahdesta luvusta pinemmän minimi -funktion avulla");
+        }
+    }
+}
