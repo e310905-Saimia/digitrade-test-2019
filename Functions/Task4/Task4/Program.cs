@@ -6,19 +6,19 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            //int maxNumber=0;
-            //int sequenceOfNumber=0;
+            int maxNumber=0;
+            int sequenceOfNumber=0;
 
             Console.WriteLine("Ohjelma palauttaa syötetyistä luvuista suurimman ja kertoo monentenako se syötettiin");
-            string resultMessage = MaxNumberCalculator(out int maxNumber, out int sequenceOfNumber);
+            string resultMessage = MaxNumberCalculator(ref maxNumber, ref sequenceOfNumber);
             Console.WriteLine($"Syötit seuraavat luvut:\n {resultMessage}");
             Console.WriteLine($"Suurin {maxNumber} oli {sequenceOfNumber}. luku.");
         }
 
-        static string MaxNumberCalculator(out int maxNumber, out int sequenceOfNumber)
+        static string MaxNumberCalculator(ref int maxNumber, ref int sequenceOfNumber)
         {
-            maxNumber=0;
-            sequenceOfNumber=0;
+            //maxNumber=0;
+            //sequenceOfNumber=0;
             string message = string.Empty;
 
             Console.WriteLine("Syötä 10 kokonaislukua");
