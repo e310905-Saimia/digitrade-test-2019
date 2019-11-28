@@ -18,5 +18,20 @@ namespace Task1
             }
 
         }
+
+        static decimal[] PriceCalculator(decimal[] productPrice, int[] productAmount)
+        {
+            // Määritetään taulukko productTotalPrice. Taulukon koko määräytyy tuotteiden määrän mukaan
+            decimal[] productTotalPrice = new decimal[productAmount.Length];
+            for (int i = 0; i < productAmount.Length; i++)
+            {
+                productTotalPrice[i] = productPrice[i] * productAmount[i];
+            }
+            return productTotalPrice;
+        }
+        static void PrintPrice()
+        {
+
+        }
     }
 }
