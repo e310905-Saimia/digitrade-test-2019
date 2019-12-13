@@ -6,7 +6,14 @@ namespace SosialSecurityNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ohjelma tarkastaa Hetun oikeellisuuden.");
+            // Console.WriteLine("Ohjelma tarkastaa Hetun oikeellisuuden.");
+            char userChoise;
+            do
+            {
+                Console.Clear();
+                userChoise = UserInterface();
+            } while (userChoise != 'X');
+
             string userInput = " 300252 - 308 T   ";
 
             userInput = RemoveSpaces(userInput);
@@ -19,12 +26,23 @@ namespace SosialSecurityNumber
                     bool isOK = IsValidID(idNumber, getLastChar);
                     PrintResult(isOK);
                 }
-
             }
             else
             {
                 Console.WriteLine("Tarkasta hetun oikeellisuus - liikaa merkkejä");
             }
+        }
+
+
+        static char UserInterface()
+        {
+            Console.WriteLine("Henkilötunnuksen käsittely.");
+            Console.WriteLine("[T] Tarkista henkilötunnuksen oikeellisuus.");
+            Console.WriteLine("[U] Luo uusi henkilötunnus.");
+            Console.WriteLine("[X] Sulje ohjelma.");
+            Console.Write("Valitse mitä tehdään: ");
+
+            return char.ToUpper(Console.ReadKey().KeyChar);
         }
 
         static bool IsValidDate(string userInput)
@@ -48,6 +66,7 @@ namespace SosialSecurityNumber
             else
             {
                 Console.WriteLine("Väärä vuosisata");
+                return result; // Keskeytetään ohjelmansuoritus
             }
 
             // Tarkastetaan päivämäärän oikeellisuus try-catch lohkossa
