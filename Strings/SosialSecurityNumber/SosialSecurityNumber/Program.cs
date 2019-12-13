@@ -12,9 +12,33 @@ namespace SosialSecurityNumber
             {
                 Console.Clear();
                 userChoise = UserInterface();
+                switch (userChoise)
+                {
+                    case 'T':
+                        SSNChecker();
+                        break;
+                    case 'U':
+
+                        break;
+                    case 'X':
+                        break;
+
+                    default:
+                        Console.WriteLine("\nTarkasta mitä painoit! Enter jatkaa ohjelman suoritusta.");
+                        Console.ReadLine();
+                        break;
+                }
+                Console.ReadLine();
             } while (userChoise != 'X');
 
-            string userInput = " 300252 - 308 T   ";
+           
+        }
+
+
+        static void SSNChecker()
+        {
+            Console.Write("\nAnna tarkastettava sotu: ");
+            string userInput = Console.ReadLine();
 
             userInput = RemoveSpaces(userInput);
             if (IsValidLenght(userInput))
@@ -32,8 +56,6 @@ namespace SosialSecurityNumber
                 Console.WriteLine("Tarkasta hetun oikeellisuus - liikaa merkkejä");
             }
         }
-
-
         static char UserInterface()
         {
             Console.WriteLine("Henkilötunnuksen käsittely.");
@@ -51,15 +73,15 @@ namespace SosialSecurityNumber
             bool result = false;
             // 
             string day = userInput.Substring(0, 2);
-            string month = userInput.Substring(2,2);
+            string month = userInput.Substring(2, 2);
             string year = userInput.Substring(4, 2);
             string century = userInput.Substring(6, 1);
 
-            if(century == "-")
+            if (century == "-")
             {
                 year = "19" + year;
             }
-            else if(century=="A")
+            else if (century == "A")
             {
                 year = "20" + year;
             }
@@ -75,7 +97,7 @@ namespace SosialSecurityNumber
                 DateTime birthday = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
                 result = true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
 
@@ -95,7 +117,7 @@ namespace SosialSecurityNumber
 
         static string RemoveSpaces(string userInput)
         {
-            string result = userInput.Replace(" ","");
+            string result = userInput.Replace(" ", "");
             return result;
         }
 
