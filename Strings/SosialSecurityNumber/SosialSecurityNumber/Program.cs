@@ -7,11 +7,18 @@ namespace SosialSecurityNumber
         static void Main(string[] args)
         {
             Console.WriteLine("Ohjelma tarkastaa Hetun oikeellisuuden.");
-            string userInput = "131052-308T";
+            string userInput = " 131052 - 308 T   ";
+            RemoveSpaces(userInput);
             int idNumber = InputParser(userInput);
             char getLastChar = GetUserInputChkMark(userInput);
             bool isOK = IsValidID(idNumber, getLastChar);
             PrintResult(isOK);
+        }
+
+        static string RemoveSpaces(string userInput)
+        {
+            string result = userInput.Replace(" ","");
+            return result;
         }
 
         static char GetUserInputChkMark(string userInput)
