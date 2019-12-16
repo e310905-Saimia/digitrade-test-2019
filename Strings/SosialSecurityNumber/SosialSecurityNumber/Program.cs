@@ -38,13 +38,15 @@ namespace SosialSecurityNumber
             string userInput = Console.ReadLine();
 
             userInput = RemoveSpaces(userInput); //"131052-308"
-            if (IsValidLength(userInput, 10))
+            if (IsValidLength(userInput,10))
             {
                 if (IsValidDate(userInput))
                 {
-
+                    int idNumber = InputParser(userInput); //idNumber on luku 131052308
+                    char getValidationMark = GetValidationMark(idNumber);
+                    PrintCreatedSSNumber(userInput + getValidationMark);
+                    PrintCreatedSSNumber($"{userInput}{getValidationMark}");
                 }
-
             }
 
 
@@ -81,6 +83,7 @@ namespace SosialSecurityNumber
 
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
+
 
         static bool IsValidDate(string userInput)
         {
@@ -119,6 +122,13 @@ namespace SosialSecurityNumber
             }
             return result;
         }
+
+        /// <summary>
+        /// Check is userInput correct length.
+        /// Default Length is 11. Return true or false.
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <returns></returns>
         static bool IsValidLength(string userInput)
         {
             return userInput.Length == 11;
@@ -131,7 +141,8 @@ namespace SosialSecurityNumber
         }
 
         /// <summary>
-        /// Check is user
+        /// Check is userInput correct length.
+        /// Varialble length is correct Length. Return true or false.
         /// </summary>
         /// <param name="userInput"></param>
         /// <param name="length"></param>
@@ -155,7 +166,7 @@ namespace SosialSecurityNumber
 
         static int InputParser(string stringParser)
         {
-            string removed = "";
+            string removed = stringParser;
             // Testataan stringParser -muuttujan pituus
             // jos pituus on yli 10 niin poistetaan viimeinen merkki
             if (stringParser.Length > 10) 
@@ -182,12 +193,25 @@ namespace SosialSecurityNumber
             // return chkMark[modChecker] == userInputChkMark;
         }
 
+        static char GetValidationMark(int idNumber)
+        {
+            string chkMark = "0123456789ABCDEFHJKLMNPRSTUVWXY";
+            int modChecker = idNumber % 31;
+
+            return chkMark[modChecker];
+        }
+
         static void PrintResult(bool isValidId)
         {
             if (isValidId)
                 Console.WriteLine("Sotu on oikein!");
             else
                 Console.WriteLine("Sotu on väärin!");
+        }
+
+        static void PrintCreatedSSNumber(string newSSNumber)
+        {
+            Console.WriteLine($"Luotu sotu on: {newSSNumber}");
         }
 
 
