@@ -11,14 +11,14 @@ namespace SosialSecurityNumber
             do
             {
                 Console.Clear();
-                userChoise = UserInterface();
+                userChoise = UserInterface(); // Kutsutaan Käyttöliittymä funtiota
                 switch (userChoise)
                 {
                     case 'T':
-                        SSNChecker();
+                        SSNChecker(); // Kutsutaan Sotun tarkastus funktiota
                         break;
                     case 'U':
-
+                        SSNCreator(); // Kutsutaan Sotun luonti funtiota
                         break;
                     case 'X':
                         break;
@@ -30,18 +30,33 @@ namespace SosialSecurityNumber
                 }
                 Console.ReadLine();
             } while (userChoise != 'X');
+        } // END MAINProgram
 
-           
+        static void SSNCreator()
+        {
+            Console.Write("\nAnna luotavan sotun alkuosa [PPKKVV-XXX]: "); // "   13 10 52 - 308  "
+            string userInput = Console.ReadLine();
+
+            userInput = RemoveSpaces(userInput); //"131052-308"
+            if (IsValidLength(userInput, 10))
+            {
+                if (IsValidDate(userInput))
+                {
+
+                }
+
+            }
+
+
         }
-
 
         static void SSNChecker()
         {
-            Console.Write("\nAnna tarkastettava sotu: ");
+            Console.Write("\nAnna tarkastettava sotu [PPKKVV-XXXT]: ");
             string userInput = Console.ReadLine();
 
             userInput = RemoveSpaces(userInput);
-            if (IsValidLenght(userInput))
+            if (IsValidLength(userInput))
             {
                 if (IsValidDate(userInput))
                 {
@@ -104,7 +119,7 @@ namespace SosialSecurityNumber
             }
             return result;
         }
-        static bool IsValidLenght(string userInput)
+        static bool IsValidLength(string userInput)
         {
             return userInput.Length == 11;
 
@@ -113,6 +128,17 @@ namespace SosialSecurityNumber
             //else
             //    return false;
 
+        }
+
+        /// <summary>
+        /// Check is user
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        static bool IsValidLength(string userInput, int length)
+        {
+            return userInput.Length == length;
         }
 
         static string RemoveSpaces(string userInput)
@@ -126,9 +152,16 @@ namespace SosialSecurityNumber
             return userInput[userInput.Length - 1];
         }
 
+
         static int InputParser(string stringParser)
         {
-            string removed = stringParser.Remove(10, 1);
+            string removed = "";
+            // Testataan stringParser -muuttujan pituus
+            // jos pituus on yli 10 niin poistetaan viimeinen merkki
+            if (stringParser.Length > 10) 
+            {
+                removed = stringParser.Remove(10, 1);
+            }
             removed = removed.Remove(6, 1);
 
             return int.Parse(removed);
