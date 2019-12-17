@@ -44,12 +44,10 @@ namespace SosialSecurityNumber
                 {
                     int idNumber = InputParser(userInput); //idNumber on luku 131052308
                     char getValidationMark = GetValidationMark(idNumber);
-                    PrintCreatedSSNumber(userInput + getValidationMark);
+                    //PrintCreatedSSNumber(userInput + getValidationMark);
                     PrintCreatedSSNumber($"{userInput}{getValidationMark}");
                 }
             }
-
-
         }
 
         static void SSNChecker()
